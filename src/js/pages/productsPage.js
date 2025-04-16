@@ -11,10 +11,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!productList) return;
 
     getProducts().forEach(product => {
-        const item = document.createElement("div");
-        item.classList.add("product-list__item");
+        const item = createProductElement(product);
+        productList.appendChild(item);
+    });
+});
 
-        item.innerHTML = `
+    export function createProductElement(product) {
+    const item = document.createElement("div");
+    item.classList.add("product-list__item");
+
+    item.innerHTML = `
       <div class="product-list__image">
         <img src="${product.image}" alt="${product.title}">
       </div>
@@ -24,7 +30,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         <p class="product-list__price">$${product.price}</p>
       </div>
     `;
-
-        productList.appendChild(item);
-    });
-});
+    return item;
+}
