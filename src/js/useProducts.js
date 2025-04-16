@@ -2,6 +2,9 @@ import {list} from './api/productApi.js';
 
 export function useProducts() {
     const products = [];
+    function getProducts() {
+        return products;
+    }
 
     async function fetchProducts() {
         try {
@@ -12,9 +15,8 @@ export function useProducts() {
     }
 
     return {
-        products,
-
         // Action
+        getProducts,
         fetchProducts,
     };
 }

@@ -3,14 +3,14 @@ import { useProducts } from '../useProducts.js';
 document.addEventListener('DOMContentLoaded', async () => {
     const {
         fetchProducts,
-        products,
+        getProducts,
     } = useProducts();
 
     await fetchProducts();
     const productList = document.getElementById("product-list");
     if (!productList) return;
 
-    products.forEach(product => {
+    getProducts().forEach(product => {
         const item = document.createElement("div");
         item.classList.add("product-list__item");
 
