@@ -1,18 +1,18 @@
-import {list} from './api/products.js';
+import {list} from './api/productApi.js';
 
 export function useProducts() {
-    const productItems = [];
+    const products = [];
 
     async function fetchProducts() {
         try {
-            productItems.push(...(await list()));
+            products.push(...(await list()));
         } catch (error) {
             console.error('商品データの取得に失敗しました:', error);
         }
     }
 
     return {
-        productItems,
+        products,
 
         // Action
         fetchProducts,
