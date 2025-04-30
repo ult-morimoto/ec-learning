@@ -1,0 +1,23 @@
+{
+  "name": "ec-learning",
+  "version": "1.0.0",
+  "description": "✅ 機能要件（機能一覧）\r 1. 商品一覧表示機能\r    固定の商品データを配列などで保持（外部APIなどは使用しない）",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@jest/globals": "^29.7.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
