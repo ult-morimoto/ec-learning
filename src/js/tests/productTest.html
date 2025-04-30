@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <title>Mocha + Chai テスト</title>
+<link rel="stylesheet" href="https://unpkg.com/mocha@10.2.0/mocha.css">
+</head>
+<body>
+<div id="mocha"></div>
+
+<!-- バージョン固定でUMD形式を指定 -->
+<script src="https://unpkg.com/mocha@10.2.0/mocha.js"></script>
+<script src="https://unpkg.com/chai@4.3.4/chai.js"></script>
+
+<script type="module">
+    import { createProductElement } from '../pages/productsPage.js';
+
+    mocha.setup('bdd'); // BDDスタイルを使用（describe/it）
+
+    describe('Product Element Tests', function() {
+        it('createProductElement creates correct DOM element', function() {
+            // モック商品データ
+            const mockProduct = {
+                id: 10000,
+                title: 'サンプル商品',
+                description: 'これは説明です',
+                price: 1000,
+                image: 'test.jpg',
+            };
+
+            // テスト対象の関数を呼び出し
+            const element = createProductElement(mockProduct);
+
+            // Chaiのアサーション
+            chai.expect(element).to.be.instanceOf(HTMLElement);
+            chai.expect(element.querySelector('.product-list__title').textContent).to.equal('サンプル商品');
+            chai.expect(element.querySelector('img').src).to.include('test.jpg');
+        });
+    });
+
+    mocha.run();
+</script>
+</body>
+</html>
